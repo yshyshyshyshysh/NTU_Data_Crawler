@@ -4,3 +4,9 @@
 -   程式碼可用來爬蟲台灣大學校園數位電表監視系統「電表資料查詢」頁面的數據。
 -   The code is designed for web scraping data from the "Meter Data Query" page of the National Taiwan University Campus Digital Electricity Meter Monitoring System.
 -   Data source (NTU VPN required): [NTU Digital Meter Monitoring System](https://epower.ga.ntu.edu.tw/?fbclid=IwAR1_crXmTrEojnqGZCh6z2hesnkZ1Bsd7YBEnyAyzEyHOoIvr-xjA8sBAqo)
+
+**User Interface**
+
+|Downloading data |Complete|
+|-----------------|--------|
+|<img src="pic\downloading.png" alt="image" width="300">|<img src="pic\complete.png" alt="image" width="300">|
