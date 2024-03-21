@@ -139,4 +139,3 @@ result_label = tk.Label(window, text="", fg="green")
 result_label.grid(row=5, column=0, columnspan=3, padx=10, pady=5)
 
 window.mainloop()
-
