@@ -44,6 +44,11 @@ def crawl_data():
     b_val = building_var.get()
     path_val = path_entry.get()
 
+    # Check if the building is valid
+    if b_val not in buildings:
+        messagebox.showerror("Error", "Invalid building selection.")
+        return
+    
     # Check if the date is valid
     try:
         start_date = datetime.strptime(start_date_val, "%Y/%m/%d")
@@ -100,11 +105,16 @@ def crawl_data():
 window = tk.Tk()
 window.title("Data Crawler")
 
+# Default date is yesterday
+default_date = datetime.now() - timedelta(days=1)
+default_date_str = default_date.strftime("%Y/%m/%d")
+
 # Start date input
 start_date_label = tk.Label(window, text="Start Date:")
 start_date_label.grid(row=0, column=0, padx=10, pady=5)
 start_date_var = tk.StringVar(window)
 start_date_entry = DateEntry(window, textvariable=start_date_var, date_pattern="yyyy/mm/dd")
+start_date_entry.set_date(default_date)  # 设置默认日期为昨天
 start_date_entry.grid(row=0, column=1, padx=10, pady=5)
 
 # End date input
@@ -112,6 +122,7 @@ end_date_label = tk.Label(window, text="End Date:")
 end_date_label.grid(row=1, column=0, padx=10, pady=5)
 end_date_var = tk.StringVar(window)
 end_date_entry = DateEntry(window, textvariable=end_date_var, date_pattern="yyyy/mm/dd")
+end_date_entry.set_date(default_date)  # 设置默认日期为昨天
 end_date_entry.grid(row=1, column=1, padx=10, pady=5)
 
 # Building menu
@@ -119,8 +130,10 @@ building_label = tk.Label(window, text="Building:")
 building_label.grid(row=2, column=0, padx=10, pady=5)
 building_var = tk.StringVar(window)
 building_var.set(buildings[0])
-building_menu = tk.OptionMenu(window, building_var, *buildings)
-building_menu.grid(row=2, column=1, columnspan=2, padx=10, pady=5)
+building_entry = tk.Entry(window, textvariable=building_var) # Entry widget for building input
+building_entry.grid(row=2, column=1, padx=10, pady=5)
+building_menu = tk.OptionMenu(window, building_var, *buildings) # OptionMenu for building selection
+building_menu.grid(row=2, column=2, padx=10, pady=5)
 
 # Path input
 path_label = tk.Label(window, text="Path:")
