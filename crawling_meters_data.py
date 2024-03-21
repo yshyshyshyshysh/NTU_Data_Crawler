@@ -84,7 +84,6 @@ year_entry.set(str(current_year - 1))  # Set default value to the previous year
 year_menu = tk.OptionMenu(root, year_entry, *years) # Create the dropdown menu for selecting the year
 year_menu.grid(row=0, column=1, padx=10, pady=5)
 
-
 # Path input
 path_label = tk.Label(root, text="Choose save location:")
 path_label.grid(row=1, column=0, padx=10, pady=5, sticky="w")
