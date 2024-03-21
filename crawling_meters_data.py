@@ -60,7 +60,7 @@ def crawl_data():
 
         electric_use = [float(value) if isfloat(value) else -1 for value in electric_use] # np.nan
         data = pd.DataFrame(electric_use)
-        data = data.rename(columns={0: 'Meter'})
+        data = data.rename(columns={0: meter})
         data.to_excel(f"{path}/{meter}.xlsx", index=False)
 
     result_label.config(text="All data saved successfully!")
@@ -75,10 +75,15 @@ root = tk.Tk()
 root.title("NTU Meter Crawler UI")
 
 # Year input
-year_label = tk.Label(root, text="Enter the year:")
+year_label = tk.Label(root, text="Select the year:")
 year_label.grid(row=0, column=0, padx=10, pady=5, sticky="w")
-year_entry = tk.Entry(root)
-year_entry.grid(row=0, column=1, padx=10, pady=5)
+current_year = datetime.now().year # Define a list of years from 2014 to the previous year
+years = [str(year) for year in range(2014, current_year)]
+year_entry = tk.StringVar(root) # Set a tkinter variable to store the selected year
+year_entry.set(str(current_year - 1))  # Set default value to the previous year
+year_menu = tk.OptionMenu(root, year_entry, *years) # Create the dropdown menu for selecting the year
+year_menu.grid(row=0, column=1, padx=10, pady=5)
+
 
 # Path input
 path_label = tk.Label(root, text="Choose save location:")
@@ -97,3 +102,4 @@ result_label = tk.Label(root, text="", fg="green")
 result_label.grid(row=3, column=0, columnspan=2, padx=10, pady=5)
 
 root.mainloop()
+

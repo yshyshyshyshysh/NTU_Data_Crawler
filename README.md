@@ -7,6 +7,6 @@
 
 **User Interface**
 
-|Downloading data |Complete|
-|-----------------|--------|
-|<img src="pic\downloading.png" alt="image" width="300">|<img src="pic\complete.png" alt="image" width="300">|
+|Selcting data|Downloading data |Complete|
+|-|-|-|
+|<img src="pic\downloading.png" alt="image" width="200">|<img src="pic\downloading.png" alt="image" width="200">|<img src="pic\complete.png" alt="image" width="200">|
