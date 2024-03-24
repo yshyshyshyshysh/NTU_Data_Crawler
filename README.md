@@ -49,7 +49,7 @@
 
 -   Prof.Hsieh's Solar Panel.
 -   Data is available from 2017/10/02 onwards.
--   Data sources: available upon request (obtained from [Ying-Chieh Chan's lab](https://yingchiehchan.com/)).
+-   Data sources: available upon request (obtained from [Professor Ying-Chieh Chan's lab](https://yingchiehchan.com/)).
 
 ### Download data for solar power generation data over a specific time
 
