@@ -88,7 +88,7 @@ def crawl_data():
         data_temp.columns = data_temp.iloc[1]
         data_temp = data_temp.iloc[3:27]
         data_temp = data_temp[b_val]
-        data_temp = list(map(float, data_temp))
+        data_temp = [float(val) if val != '---' else np.nan for val in data_temp] # data_temp = list(map(float, data_temp))
         data_output += data_temp
 
     # Output datafrme
@@ -96,7 +96,7 @@ def crawl_data():
     output['Datetime'] = pd.date_range(start=start_date, end=end_date + pd.Timedelta(hours=23), freq='H')
     output[b_val] = pd.DataFrame(data_output)
     try:
-        output.to_excel(path_val + "/" + b_val + ".xlsx", index=False)
+        output.to_csv(path_val + "/" + b_val + ".csv", index=False)
         result_label.config(text="Data downloaded successfully.")
     except Exception as e:
         result_label.config(text="Error downloading data: " + str(e))
@@ -152,4 +152,3 @@ result_label = tk.Label(window, text="", fg="green")
 result_label.grid(row=5, column=0, columnspan=3, padx=10, pady=5)
 
 window.mainloop()
-
