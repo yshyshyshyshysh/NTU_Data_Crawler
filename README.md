@@ -55,7 +55,7 @@
 
 #### Description
 
--   Run in cmd: `python crawling_pv_data.py`
+-   Run in cmd: `python crawling_pv_data.py`, and enter the webpage URL.
 -   Web page architecture:
   <img src="pic\pv_web_page.png" alt="image" width="700">
 
