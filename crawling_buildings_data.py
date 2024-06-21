@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 import requests
 from tkcalendar import DateEntry
+import numpy as np
 
 regions_dict = {
     'N1': '總配電站',
